@@ -25,6 +25,6 @@
     {
       "passKeys": "",
       "pattern": "https?://docs.google.com/*"
-    },
+    }
   ]
 }
