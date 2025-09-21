@@ -1,16 +1,17 @@
 #!/bin/bash
-
-# Grabbing the IP address of tun0
 LHOST=$(ip -4 addr show dev tun0 | grep -oP 'inet \K[\d.]+')
-
-# Reading the target IP address from the specified file
 RHOST=$(cat ~/.config/bin/target)
-
-# Combining both IPs into the format
 OUTPUT="RHOST=$RHOST LHOST=$LHOST"
 
-# Sending the output to clipboard
-echo "$OUTPUT" | tr -d "\n" | xsel -b
+# Prefer xsel, fall back to xclip; fail if none installed
+if command -v xsel >/dev/null 2>&1; then
+  CLIP_CMD="xsel -b"
+elif command -v xclip >/dev/null 2>&1; then
+  CLIP_CMD="xclip -selection clipboard"
+else
+  echo "No clipboard utility found (xsel/xclip)."
+  exit 1
+fi
 
-# Optionally, you can print the output as well
-echo "Copied to clipboard: $OUTPUT"
+# Use pipefail so any failure in the pipeline stops the success message
+(set -o pipefail; printf '%s' "$OUTPUT" | $CLIP_CMD) && echo "Copied to clipboard: $OUTPUT"
