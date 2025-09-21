@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Grabbing the IP address of tun0
+LHOST=$(ip -4 addr show dev tun0 | grep -oP 'inet \K[\d.]+')
+
+# Reading the target IP address from the specified file
+RHOST=$(cat ~/.config/bin/target)
+
+# Combining both IPs into the format
+OUTPUT="RHOST=$RHOST LHOST=$LHOST"
+
+# Sending the output to clipboard
+echo "$OUTPUT" | tr -d "\n" | xsel -b
+
+# Optionally, you can print the output as well
+echo "Copied to clipboard: $OUTPUT"
