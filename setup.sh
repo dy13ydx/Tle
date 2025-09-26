@@ -28,5 +28,5 @@ curl -sO https://raw.githubusercontent.com/heads/master/vimium.json
 # Open Firefox extension page
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 
-echo "[✓] Setup complete. Launching interactive Bash and tmux..."
-exec bash --login -i -c tmux
+echo "[✓] Setup complete. Launching interactive Bash..."
+exec bash --login -i
