@@ -4,9 +4,6 @@ curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.c
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
 
-# Apply inputrc
-bind -f ~/.inputrc
-
 # Prepare directories
 mkdir -p ~/.config/bin
 mkdir -p ~/.local/bin
@@ -31,5 +28,5 @@ curl -sO https://raw.githubusercontent.com/heads/master/vimium.json
 # Open Firefox extension page
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 
-# Start tmux
-tmux
+echo "[✓] Setup complete. Launching interactive Bash and tmux..."
+exec bash --login -i -c tmux
