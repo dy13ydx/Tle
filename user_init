@@ -29,6 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimiu
 # 7. Open Vimium extension page in Firefox
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 
+cd ~/dy13ydx
 echo "[✓] Bootstrap finished — dropping into interactive Bash and starting tmux…"
 
 # 8. Switch to a fresh interactive Bash so .inputrc loads, then auto-start tmux
