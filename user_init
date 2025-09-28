@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e    # stop if anything fails
 
 # 1. Set MATE window-switch shortcut
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
@@ -13,6 +12,7 @@ curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimr
 # 3. Prepare directories
 mkdir -p ~/.config/bin
 mkdir -p ~/.local/bin
+mkdir -p ~/dy13ydx
 
 # 4. Download helper scripts
 curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -o ~/.local/bin/target
@@ -24,9 +24,8 @@ sudo apt update -y
 sudo apt install -y xclip xsel
 
 # 6. Grab nc.exe and Vimium config
-mkdir -p ~/dy13ydx && cd ~/dy13ydx
-curl -fsSLO https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
-curl -fsSLO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
+curl -fsSL https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe -o ~/dy13ydx/nc64.exe
+curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json -o ~/dy13ydx/vimium.json
 
 # 7. Open Vimium extension page in Firefox
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
