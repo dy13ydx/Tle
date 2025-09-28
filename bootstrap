@@ -1,4 +1,5 @@
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
+gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
