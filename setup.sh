@@ -3,14 +3,12 @@ set -e    # stop if anything fails
 
 # 1. Set MATE window-switch shortcut
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
+gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 
 # 2. Download dotfiles
-curl -fsSLo ~/.tmux.conf https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf
-curl -fsSLo ~/.inputrc    https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
-curl -fsSLo ~/.vimrc      https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
-
-# NOTE: bash loads ~/.inputrc automatically for interactive shells;
-#       bind -f is not needed here.
+curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf -o ~/.tmux.conf 
+curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc -o ~/.inputrc
+curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc -o ~/.vimrc
 
 # 3. Prepare directories
 mkdir -p ~/.config/bin
@@ -18,7 +16,7 @@ mkdir -p ~/.local/bin
 
 # 4. Download helper scripts
 curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -o ~/.local/bin/target
-curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp    -o ~/.local/bin/yxp
+curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -o ~/.local/bin/yxp
 chmod +x ~/.local/bin/target ~/.local/bin/yxp
 
 # 5. Install clipboard tools
