@@ -20,7 +20,6 @@ curl -fsSL https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -
 chmod +x ~/.local/bin/target ~/.local/bin/yxp
 
 # 5. Install clipboard tools
-sudo apt update -y
 sudo apt install -y xclip xsel
 
 # 6. Grab nc.exe and Vimium config
