@@ -9,7 +9,7 @@ curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -o ~/.local/bin/yxp
 chmod +x ~/.local/bin/target;chmod +x ~/.local/bin/yxp
 sudo apt install xclip xsel rlwrap tree -y
-mkdir dy13ydx;cd dy13ydx
+mkdir -p ~/dy13ydx && cd ~/dy13ydx
 curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
