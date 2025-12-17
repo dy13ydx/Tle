@@ -13,13 +13,12 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-namespace ChromePass
+namespace Decryptor
 {
     public class Program
     {
         public static void Run()
         {
-            Console.WriteLine("[*] Living off the Land - Memory-Only Decryptor");
             Console.WriteLine("[*] Mode: PowerShell Reflection (BCrypt/DPAPI)");
             Console.WriteLine("--------------------------------------------------");
 
@@ -257,4 +256,4 @@ namespace ChromePass
 Add-Type -TypeDefinition $Source -Language CSharp
 
 # Run the Entry Point
-[ChromePass.Program]::Run()
+[Decryptor.Program]::Run()
