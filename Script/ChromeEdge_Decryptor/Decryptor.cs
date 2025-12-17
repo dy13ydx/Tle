@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
 // Chrome/Edge Password Decryptor
-// Compiles with: csc.exe /unsafe ChromePass.cs
+// Compiles with: csc.exe /unsafe Decryptor.cs
 // Compatible with legacy .NET compilers (No '$' strings)
 
 namespace ChromePass
