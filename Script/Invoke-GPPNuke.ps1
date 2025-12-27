@@ -22,12 +22,15 @@ function ConvertFrom-CPassword {
         }
         $b64 = [Convert]::FromBase64String($Cpassword)
         $aes = New-Object System.Security.Cryptography.AesManaged
-        $aes.Mode = 'CBC'; $aes.Padding = 'None'; $aes.BlockSize = 128
+        
+        # FIX: Changed Padding from 'None' to 'PKCS7' to automatically strip the '????'
+        $aes.Mode = 'CBC'; $aes.Padding = 'PKCS7'; $aes.BlockSize = 128
+        
         $aes.Key = [byte[]](0x4e,0x99,0x06,0xe8,0xfc,0xb6,0x6c,0xc9,0xfa,0xf4,0x93,0x10,0x62,0x0f,0xfe,0xe8,0xf4,0x96,0xe8,0x06,0xcc,0x05,0x79,0x90,0x20,0x9b,0x09,0xa4,0x33,0xb6,0x6c,0x1b)
         $aes.IV = New-Object byte[] 16
         $decryptor = $aes.CreateDecryptor()
         $decrypted = $decryptor.TransformFinalBlock($b64, 0, $b64.Length)
-        return [Text.Encoding]::Unicode.GetString($decrypted).TrimEnd([char]0)
+        return [Text.Encoding]::Unicode.GetString($decrypted)
     } catch { '' }
 }
 
