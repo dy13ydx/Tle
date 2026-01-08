@@ -14,5 +14,5 @@ curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
-cp user.js ~/.mozilla/firefox/*.default*/
+for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
 tmux
