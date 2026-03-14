@@ -16,4 +16,4 @@ curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
-tmux
+exec tmux
