@@ -3,7 +3,7 @@ gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
-bind -f ~/.inputrc
+[[ $- == *i* ]] && bind -f ~/.inputrc
 mkdir ~/.config/bin;mkdir ~/.local/bin
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -o ~/.local/bin/target && chmod +x ~/.local/bin/target
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -o ~/.local/bin/yxp && chmod +x ~/.local/bin/yxp
