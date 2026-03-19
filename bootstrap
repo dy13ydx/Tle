@@ -8,6 +8,7 @@ mkdir ~/.config/bin;mkdir ~/.local/bin
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -o ~/.local/bin/target && chmod +x ~/.local/bin/target
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -o ~/.local/bin/yxp && chmod +x ~/.local/bin/yxp
 curl -s https://raw.githubusercontent.com/ryanwoodsmall/static-binaries/refs/heads/master/x86_64/rlwrap -o ~/.local/bin/rlwrap && chmod +x ~/.local/bin/rlwrap
+curl -LsSf https://astral.sh/uv/install.sh | sh
 mkdir -p ~/dy13ydx && cd ~/dy13ydx
 curl -sLOJ https://github.com/peteretelej/tree/releases/download/v1.3.0/tree-v1.3.0-Linux-amd64.tar.gz
 tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin/tree && rm -f tree-v1.3.0-Linux-amd64.tar.gz
