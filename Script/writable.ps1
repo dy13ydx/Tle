@@ -1,18 +1,17 @@
-$target = Read-Host "Enter path to check"
+param([string]$target = "C:\inetpub")
 $id = [Security.Principal.WindowsIdentity]::GetCurrent()
-$myGroups = $id.Groups.Translate([Security.Principal.NTAccount]).Value
-$myGroups += $id.Name
+$myGroups = $id.Groups.Translate([Security.Principal.NTAccount]).Value + $id.Name
 
 Get-ChildItem $target -Directory -Recurse -ErrorAction SilentlyContinue | ForEach-Object {
-	if ([console]::KeyAvailable -and [console]::ReadKey($true).KeyChar -eq 'q') { break }
     $dir = $_
     try {
-        (Get-Acl $dir.FullName).Access | ForEach-Object {
-            if ($_.AccessControlType -eq "Allow" -and $_.IdentityReference.Value -in $myGroups) {
-                if (($_.FileSystemRights -like "*Write*" -or $_.FileSystemRights -like "*Create*") -and $_.FileSystemRights -like "*Execute*") {
-                    Write-Host "$($dir.FullName): $($_.IdentityReference.Value) ($($_.FileSystemRights))"
-                }
-            }
+        (Get-Acl $dir.FullName).Access | Where-Object { 
+            $_.AccessControlType -eq "Allow" -and 
+            $_.IdentityReference.Value -in $myGroups -and 
+            $_.FileSystemRights -match "Write|Create" -and 
+            $_.FileSystemRights -match "Execute" 
+        } | ForEach-Object { 
+            Write-Host "$($dir.FullName): $($_.IdentityReference.Value)" 
         }
     } catch { }
 }
