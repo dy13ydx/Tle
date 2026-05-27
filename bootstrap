@@ -1,5 +1,7 @@
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
 gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
+gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/top/ auto-hide true
+gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ auto-hide true
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
@@ -14,8 +16,8 @@ mkdir -p ~/dy13ydx && cd ~/dy13ydx
 curl -sLOJ https://github.com/peteretelej/tree/releases/download/v1.3.0/tree-v1.3.0-Linux-amd64.tar.gz
 tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin/tree && rm -f tree-v1.3.0-Linux-amd64.tar.gz
 curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
-curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
-curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
+curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
+curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
 exec tmux
