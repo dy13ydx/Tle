@@ -2,6 +2,7 @@ gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
 gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/top/ auto-hide true
 gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ auto-hide true
+gsettings set org.mate.terminal.profile:/org/mate/terminal/profiles/profile0/ default-show-menubar false
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.tmux.conf
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.inputrc
 curl -sO https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/.vimrc
