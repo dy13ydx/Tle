@@ -19,6 +19,6 @@ tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin
 curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
-firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
+firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/ </dev/null >/dev/null 2>&1
 for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
-setsid mate-terminal --disable-factory --maximize -- bash -c "cd ~/dy13ydx && exec tmux" & kill -9 $PPID
+exec setsid mate-terminal --disable-factory --maximize -- bash -c "cd ~/dy13ydx && exec tmux"
