@@ -21,4 +21,4 @@ curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/ </dev/null >/dev/null 2>&1
 for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
-setsid mate-terminal --disable-factory --maximize -- bash -c "cd ~/dy13ydx && exec tmux" & exit
+setsid mate-terminal --disable-factory --maximize -- bash -c "cd ~/dy13ydx && exec tmux" </dev/null >/dev/null 2>&1 & kill -9 $PPID
