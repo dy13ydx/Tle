@@ -11,6 +11,7 @@ mkdir -p ~/.config/nvim && curl -s https://raw.githubusercontent.com/dy13ydx/Tle
 mkdir -p ~/.config/bin ~/.local/bin
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/target -o ~/.local/bin/target && chmod +x ~/.local/bin/target
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/yxp -o ~/.local/bin/yxp && chmod +x ~/.local/bin/yxp
+curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/mkenv -o ~/.local/bin/mkenv && chmod +x ~/.local/bin/mkenv
 curl -s https://raw.githubusercontent.com/ryanwoodsmall/static-binaries/refs/heads/master/x86_64/rlwrap -o ~/.local/bin/rlwrap && chmod +x ~/.local/bin/rlwrap
 curl -LsSf https://astral.sh/uv/install.sh | sh
 mkdir -p ~/dy13ydx && cd ~/dy13ydx
