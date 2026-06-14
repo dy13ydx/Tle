@@ -1,0 +1,15 @@
+#!/bin/bash
+
+RHOST=$(cat ~/.config/bin/target 2>/dev/null)
+LHOST=$(ip -o -4 add show dev tun0 2>/dev/null | awk '{print $4}' | cut -f1 -d/)
+DC=$(awk '$1 == "kdc"{print $3; exit}' /etc/krb5.conf 2>/dev/null)
+DOM=$(awk '/default_domain =/ {print $3; exit}' /etc/krb5.conf 2>/dev/null | tr '[:upper:]' '[:lower:]')
+
+# Write to target.env
+cat <<EOF > target.env
+export RHOST=$RHOST
+export LHOST=$LHOST
+export DCIP=$RHOST
+export DC=$DC
+export DOM=$DOM
+EOF
