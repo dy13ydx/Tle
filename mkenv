@@ -13,3 +13,4 @@ export DCIP=$RHOST
 export DC=$DC
 export DOM=$DOM
 EOF
+echo "[+] Updated target.env"
