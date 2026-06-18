@@ -1,16 +1,32 @@
 #!/bin/bash
 
+# Extract base variables
 RHOST=$(cat ~/.config/bin/target 2>/dev/null)
 LHOST=$(ip -o -4 add show dev tun0 2>/dev/null | awk '{print $4}' | cut -f1 -d/)
 DC=$(awk '$1 == "kdc"{print $3; exit}' /etc/krb5.conf 2>/dev/null)
 DOM=$(awk '/default_domain =/ {print $3; exit}' /etc/krb5.conf 2>/dev/null | tr '[:upper:]' '[:lower:]')
 
+# Dynamically resolve the DCIP
+if [ -n "$DC" ]; then
+    # getent respects /etc/hosts, making it ideal for CTF environments
+    DCIP=$(getent hosts "$DC" | awk '{print $1}' | head -n 1)
+else
+    DCIP=""
+fi
+
+# Fallback mechanism: If resolution fails or DC is empty, fallback to RHOST
+if [ -z "$DCIP" ]; then
+    DCIP=$RHOST
+    echo "[-] Could not resolve DC IP. Falling back to RHOST ($RHOST)."
+fi
+
 # Write to target.env
 cat <<EOF > target.env
 export RHOST=$RHOST
 export LHOST=$LHOST
-export DCIP=$RHOST
+export DCIP=$DCIP
 export DC=$DC
 export DOM=$DOM
 EOF
+
 echo "[+] Updated target.env"
