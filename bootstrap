@@ -21,6 +21,8 @@ tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin
 curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
+command -v penelope &> /dev/null || uv tool install git+https://github.com/brightio/penelope
+command -v winrmexec &> /dev/null || uv tool install git+https://github.com/ozelis/winrmexec
 firefox https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/ </dev/null >/dev/null 2>&1
 for d in ~/.mozilla/firefox/*.default*/; do cp user.js "$d"; done
 setsid mate-terminal --disable-factory --maximize -- bash -c "cd ~/dy13ydx && exec tmux" </dev/null >/dev/null 2>&1 & (sleep 1 && kill -HUP $PPID) &
