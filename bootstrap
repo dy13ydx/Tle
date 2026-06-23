@@ -1,3 +1,4 @@
+echo "unset \$(env | grep -oP '^SUDO_[A-Z]+(?==)') 2>/dev/null" >> ~/.bashrc
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
 gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ auto-hide true
