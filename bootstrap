@@ -16,7 +16,7 @@ curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/ryxp -o 
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/mkenv -o ~/.local/bin/mkenv && chmod +x ~/.local/bin/mkenv
 curl -s https://raw.githubusercontent.com/ryanwoodsmall/static-binaries/refs/heads/master/x86_64/rlwrap -o ~/.local/bin/rlwrap && chmod +x ~/.local/bin/rlwrap
 curl -LsSf https://astral.sh/uv/install.sh | sh
-sed -i -e '2s/^/# /' -e '5s/^#//' ~/.tmux.conf
+sed -i -e '3s/^/#/' -e '2s/^#//' -e '6s/^#//' ~/.tmux.conf
 mkdir -p ~/dy13ydx && cd ~/dy13ydx
 curl -sLOJ https://github.com/peteretelej/tree/releases/download/v1.3.0/tree-v1.3.0-Linux-amd64.tar.gz
 tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin/tree && rm -f tree-v1.3.0-Linux-amd64.tar.gz
