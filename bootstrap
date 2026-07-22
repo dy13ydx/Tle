@@ -33,9 +33,11 @@ sudo jq '.policies.ExtensionSettings["{d7742d87-e61d-4b78-b8a1-b469842139fa}"] =
 }' /etc/firefox/policies/policies.json | sudo tee /etc/firefox/policies/policies.json.tmp > /dev/null && sudo mv /etc/firefox/policies/policies.json.tmp /etc/firefox/policies/policies.json
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
 curl -s https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/storage-sync-v2.sqlite -o /tmp/storage-sync-v2.sqlite
+pkill -f firefox 2>/dev/null
 for d in ~/.mozilla/firefox/*.default*/; do
     [ -d "$d" ] || continue
     cp user.js "$d"
+    rm -f "$d"/storage-sync-v2.sqlite-wal "$d"/storage-sync-v2.sqlite-shm
     cp /tmp/storage-sync-v2.sqlite "$d"
 done
 rm -f /tmp/storage-sync-v2.sqlite
