@@ -8,3 +8,4 @@ user_pref("devtools.toolbox.selectedTool", "webconsole");
 user_pref("devtools.webconsole.input.editor", true);
 user_pref("devtools.webconsole.input.editorOnboarding", false);
 user_pref("devtools.webconsole.input.editorWidth", 930);
+user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
