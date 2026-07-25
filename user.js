@@ -3,6 +3,7 @@ user_pref("ui.key.menuAccessKeyFocuses", false);
 user_pref("devtools.editor.keymap", "vim");
 user_pref("devtools.everOpened", true);
 user_pref("devtools.selfxss.count", 5);
+user_pref("devtools.toolbox.previousHost", "window");
 user_pref("devtools.toolbox.selectedTool", "webconsole");
 user_pref("devtools.webconsole.input.editor", true);
 user_pref("devtools.webconsole.input.editorOnboarding", false);
