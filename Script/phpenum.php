@@ -36,16 +36,13 @@ $dangerous = [
     ]
 ];
 
-$disabled_raw = (string)ini_get('disable_functions');
-$disabled = array_filter(array_map('trim', explode(',', $disabled_raw)));
+$disabled = array_filter(array_map('trim', explode(',', (string)ini_get('disable_functions'))));
 
-echo "==================================================\n";
-echo "           PHP CONFIGURATION AUDIT               \n";
-echo "==================================================\n";
+echo "=== PHP Configuration Audit ===\n";
 echo "[*] PHP Version  : " . PHP_VERSION . "\n";
-echo "[*] SAPI Handler : " . PHP_SAPI . "\n";
-echo "[*] open_basedir : " . (ini_get('open_basedir') ?: 'Disabled') . "\n";
-echo "==================================================\n\n";
+echo "[*] open_basedir : " . (ini_get('open_basedir') ?: 'Disabled') . "\n\n";
+
+$found_any = false;
 
 foreach ($dangerous as $category => $functions) {
     $usable = [];
@@ -55,14 +52,17 @@ foreach ($dangerous as $category => $functions) {
         }
     }
     
-    echo "=== $category (" . count($usable) . " Available) ===\n";
-    if (empty($usable)) {
-        echo "  [-] None enabled\n";
-    } else {
+    if (!empty($usable)) {
+        $found_any = true;
+        echo "[+] $category (" . count($usable) . " Available):\n";
         foreach ($usable as $func) {
-            echo "  [+] $func\n";
+            echo "  * $func\n";
         }
+        echo "\n";
     }
-    echo "\n";
+}
+
+if (!$found_any) {
+    echo "[-] No dangerous functions are currently available.\n";
 }
 ?>
