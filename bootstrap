@@ -1,4 +1,3 @@
-echo "unset \$(env | grep -oP '^SUDO_[A-Z]+(?==)') 2>/dev/null" >> ~/.bashrc
 gsettings set org.mate.Marco.global-keybindings switch-windows '<Alt>grave'
 gsettings set org.mate.Marco.global-keybindings switch-group 'disabled'
 gsettings set org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ auto-hide true
@@ -23,7 +22,6 @@ tar xvzf tree-v1.3.0-Linux-amd64.tar.gz -C ~/.local/bin && chmod +x ~/.local/bin
 curl -sOJ https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/vimium.json
 curl -sOJ https://raw.githubusercontent.com/dy13ydx/Tle/refs/heads/master/user.js
-command -v penelope &> /dev/null || uv tool install git+https://github.com/brightio/penelope
 command -v winrmexec &> /dev/null || uv tool install git+https://github.com/ozelis/winrmexec
 sudo mkdir -p /etc/firefox/policies
 [ ! -f /etc/firefox/policies/policies.json ] && echo '{}' | sudo tee /etc/firefox/policies/policies.json > /dev/null
